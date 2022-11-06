@@ -42,82 +42,82 @@
 
   const ENTRIES = [
     {
-      key: 'minecraft:custom/minecraft:walk_one_cm',
+      key: 'stat.walkOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:crouch_one_cm',
+      key: 'stat.crouchOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:sprint_one_cm',
+      key: 'stat.sprintOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:swim_one_cm',
+      key: 'stat.swimOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:fall_one_cm',
+      key: 'stat.fallOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:climb_one_cm',
+      key: 'stat.climbOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:minecart_one_cm',
+      key: 'stat.minecartOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:boat_one_cm',
+      key: 'stat.boatOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:horse_one_cm',
+      key: 'stat.horseOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:aviate_one_cm',
+      key: 'stat.aviateOneCm',
       transform: val => humanizeNumber(val / 100),
       unit: 'nyaa.unit.distance_meter.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:jump',
+      key: 'stat.jump',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.action_time.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:deaths',
+      key: 'stat.deaths',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.action_time.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:damage_dealt',
+      key: 'stat.damageDealt',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.health_point.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:damage_taken',
+      key: 'stat.damageTaken',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.health_point.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:mob_kills',
+      key: 'stat.mobKills',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.action_time.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:player_kills',
+      key: 'stat.playerKills',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.action_time.plural',
     },
@@ -127,12 +127,12 @@
       unit: 'nyaa.unit.action_time.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:traded_with_villager',
+      key: 'stat.tradedWithVillager',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.action_time.plural',
     },
     {
-      key: 'minecraft:custom/minecraft:leave_game',
+      key: 'stat.leaveGame',
       transform: val => humanizeNumber(val),
       unit: 'nyaa.unit.action_time.plural',
     },
