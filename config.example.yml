@@ -29,6 +29,9 @@ render:
   #bs_skin: https://mcskin.example.com
   # 如果无法获取某玩家的id(请求Yggdrasil API出错的时候),是否使用一个默认的id；注释它将不处理这样的玩家数据
   def_name: unkown_player
+  
+  # 从usercache.json中获取玩家id,适用于离线服务器或连接Mojang API过慢的情况
+  #userchche: usercache.json
 
   # Output
 

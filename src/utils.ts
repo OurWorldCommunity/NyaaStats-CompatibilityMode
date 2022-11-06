@@ -14,6 +14,7 @@ const config = loadConfig()
 const outputDir = config.resolve(config.render.output)
 const playersPath = path.join(outputDir, 'players.json')
 const oldPlayers: NSPlayerInfoData[] | null = fs.existsSync(playersPath) ? fs.readJsonSync(playersPath) : null
+const usercache = config.get<string>('render.usercache') ? fs.readJsonSync(config.get<string>('render.usercache')) : null
 
 export default class Utils {
   apiLimited: boolean
@@ -172,6 +173,16 @@ export default class Utils {
   }
 
   async getCurrentName (uuid: LongUuid): Promise<string | null> {
+      
+    if (usercache != null) {
+        for(let i in usercache){
+            if(usercache[i]['uuid']==uuid){
+                logger.PlayerData.info('UserCache', '获取id -> '+usercache[i]['name'])
+                return usercache[i]['name']
+            }
+        }
+        return config.get<string>('render.def_name')?? null
+    }
     
     let apiProfile = config.get('render.bs_skin') ? config.get<string>('render.bs_skin')+'/api/yggdrasil/sessionserver/session/minecraft/profile/'+uuid.replace(/-/g,'') : `https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`
     let profile
@@ -237,6 +248,7 @@ export default class Utils {
         apiPrefixBody = config.get('render.bs_skin')+'/preview/hash/'+skin_hash
         apiPrefixSkin = config.get('render.bs_skin')+'/textures/'+skin_hash
     }else{
+        uuid = uuid.replace(/-/g, '')
         const slim = `&default=MHF_${defaultSkin(uuid)}`
         
         apiPrefixAvatar = `${config.get('render.crafatar')}/avatars/${uuid}?size=64&overlay${slim}`
@@ -273,7 +285,7 @@ export default class Utils {
         data.data.names = playerInfo.names
       }
       try {
-        await this.getPlayerAssets(uuid.replace(/-/g, ''), playerpath)
+        await this.getPlayerAssets(uuid, playerpath)
       } catch (error) {
         logger.PlayerData.error('ASSETS', error.toString())
       }
