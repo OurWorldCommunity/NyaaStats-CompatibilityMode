@@ -961,6 +961,24 @@
     "stat.minecraft.walk_on_water_one_cm": "水面行走距离",
     "stat.minecraft.walk_one_cm": "行走距离",
     "stat.minecraft.walk_under_water_one_cm": "水下行走距离",
-    "stat.mobsButton": "生物"
+    "stat.mobsButton": "生物",
+    "old.stat.walkOneCm": "步行距离",
+    "old.stat.crouchOneCm": "潜行距离",
+    "old.stat.sprintOneCm": "跑步距离",
+    "old.stat.swimOneCm": "游泳距离",
+    "old.stat.fallOneCm": "坠落高度",
+    "old.stat.climbOneCm": "攀爬高度",
+    "old.stat.minecartOneCm": "坐矿车移动距离",
+    "old.stat.boatOneCm": "划船距离",
+    "old.stat.horseOneCm": "骑马距离",
+    "old.stat.aviateOneCm": "飞行距离(鞘翅)",
+    "old.stat.jump": "跳跃次数",
+    "old.stat.deaths": "嗝屁次数",
+    "old.stat.damageDealt": "造成过的伤害",
+    "old.stat.damageTaken": "受到过的伤害",
+    "old.stat.mobKills": "消灭的怪物",
+    "old.stat.playerKills": "杀害的玩家",
+    "old.stat.tradedWithVillager": "拯救的村民",
+    "old.stat.leaveGame": "离开服务器次数"
   }
 }

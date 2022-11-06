@@ -171,8 +171,7 @@
    * @param {String} statKey
    */
   function statKey2LangKey (statKey) {
-    const [, , , name] = statKey.split(/[:/]/)
-    return 'stat.minecraft.' + name
+    return 'old.' + statKey
   }
 
   export default {
