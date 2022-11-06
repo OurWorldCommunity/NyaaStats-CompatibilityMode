@@ -24,6 +24,11 @@ render:
   render-banned: false
   # [Required] Crafatar service URL, used for player avatar/skin model generating
   crafatar: https://crafatar.com
+  
+  # 使用Blessing Skin的接口获取玩家id、头像、皮肤等，注释它以禁用
+  #bs_skin: https://mcskin.example.com
+  # 如果无法获取某玩家的id(请求Yggdrasil API出错的时候),是否使用一个默认的id；注释它将不处理这样的玩家数据
+  def_name: unkown_player
 
   # Output
 
