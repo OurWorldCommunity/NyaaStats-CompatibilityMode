@@ -216,25 +216,48 @@ export default class Utils {
     } catch (error) {
       throw new Error(error)
     }
-
-    const apiPrefixAvatar = `${config.get('render.crafatar')}/avatars/`
-    const apiPrefixBody = `${config.get('render.crafatar')}/renders/body/`
-    const apiPrefixSkin = `${config.get('render.crafatar')}/skins/`
-
-    const slim = `&default=MHF_${defaultSkin(uuid)}`
+    
+    let apiPrefixAvatar
+    let apiPrefixBody
+    let apiPrefixSkin
+    
+    if (config.get('render.bs_skin')) {        
+        let skin_hash
+        let player_id
+        
+        
+        try {
+            player_id = await this.getCurrentName(uuid)
+            let res = await axios.get(config.get('render.bs_skin')+'/'+player_id+'.json', {timeout: 30000})
+            skin_hash = res.data.skins.default
+        } catch (err) {
+            throw new Error('请求BS玩家信息接口失败('+player_id+') -> '+err)
+        }
+        apiPrefixAvatar = config.get('render.bs_skin')+'/avatar/player/'+player_id+'?size=64'
+        apiPrefixBody = config.get('render.bs_skin')+'/preview/hash/'+skin_hash
+        apiPrefixSkin = config.get('render.bs_skin')+'/textures/'+skin_hash
+    }else{
+        const slim = `&default=MHF_${defaultSkin(uuid)}`
+        
+        apiPrefixAvatar = `${config.get('render.crafatar')}/avatars/${uuid}?size=64&overlay${slim}`
+        apiPrefixBody = `${config.get('render.crafatar')}/renders/body/${uuid}?size=128&overlay${slim}`
+        apiPrefixSkin = `${config.get('render.crafatar')}/skins/${uuid}?${slim}`
+    }
 
     await download(
-      `${apiPrefixAvatar}${uuid}?size=64&overlay${slim}`,
+      apiPrefixAvatar,
       path.join(playerpath, 'avatar.png'),
     )
     await download(
-      `${apiPrefixBody}${uuid}?size=128&overlay${slim}`,
+      apiPrefixBody,
       path.join(playerpath, 'body.png'),
     )
     await download(
-      `${apiPrefixSkin}${uuid}?${slim}`,
+      apiPrefixSkin,
       path.join(playerpath, 'skin.png'),
     )
+
+
   }
 
   async createPlayerData (uuid: LongUuid, banned = false): Promise<NSPlayerStatsJson> {
