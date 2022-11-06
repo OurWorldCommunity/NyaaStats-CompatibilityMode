@@ -172,13 +172,14 @@ export default class Utils {
   }
 
   async getCurrentName (uuid: LongUuid): Promise<string | null> {
-    const apiProfile = `https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`
+    
+    let apiProfile = config.get('render.bs_skin') ? config.get<string>('render.bs_skin')+'/api/yggdrasil/sessionserver/session/minecraft/profile/'+uuid.replace(/-/g,'') : `https://sessionserver.mojang.com/session/minecraft/profile/${uuid}`
     let profile
     try {
       profile = await this.getMojangAPI<McPlayerProfile | ''>(apiProfile)
-      return profile === '' ? null : profile.name
+      return profile === '' ? (config.get<string>('render.def_name')?? null) : profile.name
     } catch (err) {
-      return null
+      return config.get<string>('render.def_name')?? null
     }
   }
 
